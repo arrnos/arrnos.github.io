@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hello, arrnos" />
+  <meta name="keywords" content="ubuntu,命令，系统设置," />
 
 
 
@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://i.imgur.com/TillNf5.jpg">
 <meta property="og:image" content="http://i.imgur.com/uw01kuK.gif">
 <meta property="og:image" content="http://i.imgur.com/1hEgIPF.jpg">
-<meta property="og:updated_time" content="2016-10-20T03:05:09.742Z">
+<meta property="og:updated_time" content="2016-10-20T03:29:21.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 16.04 LTS安装好之后需要做的几件事">
 <meta name="twitter:description" content="前言">
@@ -378,8 +378,20 @@ sudo apt-get install sogoupinyin</code>  </li>
 </code></pre><h3 id="9-删掉基本不用的自带软件（用的时候再装也来得及）"><a href="#9-删掉基本不用的自带软件（用的时候再装也来得及）" class="headerlink" title="9.删掉基本不用的自带软件（用的时候再装也来得及）"></a>9.删掉基本不用的自带软件（用的时候再装也来得及）</h3><pre><code>sudo apt-get remove thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese transmission-common gnome-orca webbrowser-app gnome-sudoku  landscape-client-ui-install
 sudo apt-get remove onboard deja-dup 
 </code></pre><p>这样系统就基本上干净了</p>
+<h2 id="附录：Ubuntu最常用命令"><a href="#附录：Ubuntu最常用命令" class="headerlink" title="附录：Ubuntu最常用命令"></a>附录：Ubuntu最常用命令</h2><ol>
+<li>ls   查看指定目录下的内容<br>ls -l  查看当前目录内容的详细信息。<br>ls -a  查看当前目录中的所有文件(包括隐藏文件)</li>
+<li>mkdir  创建单个目录<br>mv 重命名 </li>
+<li>cd ..  上一层目录<br>cd ~  主目录<br>cd ./balba/   进入此目录下的子目录<br>cd /opt/java/  进入绝对目录</li>
+<li>rmdir  balabala  用来删除空目录<br>touch  创建一个空文件,如touch foo.c<br>rm 删除文件  如 rm aaa.c<br>cp filename newfilename.c  复制文件</li>
+<li>将a目录用gzip打包，tar zcvf a.tar.gz a<br>将a目录用bzip2打包，tar jcvf a.tar.bz2 a<br>解压gzip包，tar zxvf a.tar.gz<br>解压bzip2包，tar jxvf a.tar.bz2</li>
+<li>find命令 在目录中查找文件 如 $find . -name ‘chess.*‘ </li>
+<li><p>grep 在指定文件中搜索特定内容，并将含有这些内容的行输出到标准输出。若不指定文件名，则从标准输入读取。 如<br>$grep ‘printf’ ./ -R./chess.c:30: printf(“\n “);<br>./chess.c:32: printf(“ %d”, i + 1);<br>./chess.c:33: printf(“\n”);<br>./chess.c:35: printf(“ -“);<br>./chess.c:36: printf(“\n”);  </p>
+</li>
+<li><p>ifconfig 查看网络设置</p>
+</li>
+</ol>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>具体设置请根据个人工作需求和喜欢进行详细设置。比如删除Amazon的链接，设置时间使用UTC，安装Chrome，安装Sublime Text 3，java，spark，经典菜单指示器，安装git和vpnc，openssh-server等等，详见参考链接2.</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>（1）<a href="http://digi.163.com/16/0421/22/BL797RVT00162OUT.html" target="_blank" rel="external">Ubuntu 16.04 LTS安装好之后需要做的15件事</a><br>（2）<a href="http://blog.csdn.net/skykingf/article/details/45267517" target="_blank" rel="external">Ubuntu 16.04 LTS安装好之后需要做的20件事</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>（1）<a href="http://digi.163.com/16/0421/22/BL797RVT00162OUT.html" target="_blank" rel="external">Ubuntu 16.04 LTS安装好之后需要做的15件事</a><br>（2）<a href="http://blog.csdn.net/skykingf/article/details/45267517" target="_blank" rel="external">Ubuntu 16.04 LTS安装好之后需要做的20件事</a><br>（3）<a href="http://wenku.baidu.com/link?url=Hw7rAhLLT11B1U0XdvXYH2lvbJRtkv8sPkGFEAalyJKbfox87LPk5XYNrfTNfcndF0ApZ4tASwFgzAHzxrIp--i6e0P82CzJsK1aQVNwbU_" target="_blank" rel="external">ubutu 初学者常用命令</a></p>
 
       
     </div>
@@ -404,6 +416,14 @@ sudo apt-get remove onboard deja-dup
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ubuntu/" rel="tag">#ubuntu</a>
+          
+            <a href="/tags/命令，系统设置/" rel="tag">#命令，系统设置</a>
+          
+        </div>
       
 
       
@@ -526,7 +546,7 @@ sudo apt-get remove onboard deja-dup
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -543,7 +563,7 @@ sudo apt-get remove onboard deja-dup
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -601,7 +621,7 @@ sudo apt-get remove onboard deja-dup
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-更新软件源"><span class="nav-number">2.1.</span> <span class="nav-text">1. 更新软件源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-更换语言"><span class="nav-number">2.2.</span> <span class="nav-text">2. 更换语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装搜狗输入法"><span class="nav-number">2.3.</span> <span class="nav-text">3. 安装搜狗输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-点击图标最小化"><span class="nav-number">2.4.</span> <span class="nav-text">4. 点击图标最小化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-安装系统清理工具"><span class="nav-number">2.5.</span> <span class="nav-text">5. 安装系统清理工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-安装vim"><span class="nav-number">2.6.</span> <span class="nav-text">6. 安装vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-安装WPS-Office"><span class="nav-number">2.7.</span> <span class="nav-text">7. 安装WPS Office</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-删除libreoffice"><span class="nav-number">2.8.</span> <span class="nav-text">8. 删除libreoffice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-删掉基本不用的自带软件（用的时候再装也来得及）"><span class="nav-number">2.9.</span> <span class="nav-text">9.删掉基本不用的自带软件（用的时候再装也来得及）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">3.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-更新软件源"><span class="nav-number">2.1.</span> <span class="nav-text">1. 更新软件源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-更换语言"><span class="nav-number">2.2.</span> <span class="nav-text">2. 更换语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装搜狗输入法"><span class="nav-number">2.3.</span> <span class="nav-text">3. 安装搜狗输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-点击图标最小化"><span class="nav-number">2.4.</span> <span class="nav-text">4. 点击图标最小化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-安装系统清理工具"><span class="nav-number">2.5.</span> <span class="nav-text">5. 安装系统清理工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-安装vim"><span class="nav-number">2.6.</span> <span class="nav-text">6. 安装vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-安装WPS-Office"><span class="nav-number">2.7.</span> <span class="nav-text">7. 安装WPS Office</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-删除libreoffice"><span class="nav-number">2.8.</span> <span class="nav-text">8. 删除libreoffice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-删掉基本不用的自带软件（用的时候再装也来得及）"><span class="nav-number">2.9.</span> <span class="nav-text">9.删掉基本不用的自带软件（用的时候再装也来得及）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录：Ubuntu最常用命令"><span class="nav-number">3.</span> <span class="nav-text">附录：Ubuntu最常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>
