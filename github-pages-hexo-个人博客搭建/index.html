@@ -96,7 +96,7 @@
 <meta property="og:image" content="http://i.imgur.com/vNXgHRT.png">
 <meta property="og:image" content="http://i.imgur.com/gkzQVXr.png">
 <meta property="og:image" content="http://i.imgur.com/ywb5glU.png">
-<meta property="og:updated_time" content="2016-10-19T14:38:35.935Z">
+<meta property="og:updated_time" content="2016-10-22T12:50:04.220Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github pages+ 	Hexo 个人博客搭建">
 <meta name="twitter:description" content="前言鉴于我自身建站经历，不熟悉各种编码语言，口袋里没有多少钱，却殷切希望拥有一个独立的个人博客，在翻阅了各种教程后，看完各种眼花缭乱的代码后，终于将这个网站在github pages上搞出来了。在此，我不希望大家都重蹈覆辙，为了方便大家，我在此为大家做一个傻瓜教程。">
@@ -382,11 +382,12 @@
 </blockquote>
 <h4 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2.安装Node.js"></a>2.安装Node.js</h4><p>　　可以一路默认，需要的话也可以更改一下安装的路径。  </p>
 <blockquote>
-<p>下载链接：<a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a></p>
+<p>下载链接：<a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a><br>安装Windows版本或者其他版本，安装完node.js后需要关闭bash后重新开启。</p>
+<h4 id="3-安装Hexo并初始化"><a href="#3-安装Hexo并初始化" class="headerlink" title="3.安装Hexo并初始化"></a>3.安装Hexo并初始化</h4><p>Hexo的安装需要借助Node.js的npm命令，npm是node.js的管理工具，node.js已经集成了npm。<br>假设你是在D盘下建立了一个名叫Hexo的文件夹，那么路径就是D:\hexo 。<br>操作的方式用Git bash命令，在里面输入：   </p>
 </blockquote>
-<h4 id="3-安装Hexo并初始化"><a href="#3-安装Hexo并初始化" class="headerlink" title="3.安装Hexo并初始化"></a>3.安装Hexo并初始化</h4><p>Hexo的安装需要借助Node.js的npm命令，可以理解为Hexo是Node.js的模块。<br>假设你是在D盘下建立了一个名叫Hexo的文件夹，那么路径就是D:\hexo 。<br>操作的方式用Git bash命令，在里面输入：   </p>
 <pre><code>$ cd d:/hexo
-$ npm install hexo-cli -g
+$ npm install hexo-cli -g   //借助node的npm安装hexo插件
+$ npm install hexo-deployer-git --save //为hexo安装插件，用了在git上传html等文件
 $ hexo init blog
 $ cd blog
 $ npm install  //安装依赖包
