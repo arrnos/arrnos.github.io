@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://i.imgur.com/TillNf5.jpg">
 <meta property="og:image" content="http://i.imgur.com/uw01kuK.gif">
 <meta property="og:image" content="http://i.imgur.com/1hEgIPF.jpg">
-<meta property="og:updated_time" content="2016-10-22T15:45:15.331Z">
+<meta property="og:updated_time" content="2016-10-22T16:11:54.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 16.04 LTS安装好之后需要做的几件事">
 <meta name="twitter:description" content="前言Ubuntu16.04 系统安装成功后，还不适合我们工作和学习的需要，还需要进行一些必要的配置。">
@@ -363,8 +363,9 @@
 <h3 id="2-更换语言"><a href="#2-更换语言" class="headerlink" title="2. 更换语言"></a>2. 更换语言</h3><p>有的时候，一些朋友对英文界面不太熟悉，因此设置为中文语言显得很有必要。 (chinese(simplied)可能在列表下方，需要向下翻看)<br><img src="http://i.imgur.com/er1lUlr.png" alt=""><br>具体步骤参见：</p>
 <blockquote>
 <p><a href="http://jingyan.baidu.com/article/3c343ff7029de30d37796306.html" target="_blank" rel="external">http://jingyan.baidu.com/article/3c343ff7029de30d37796306.html</a></p>
+<p>####3. 挂载硬盘<br>点击一个虚拟机，在开启之前，点击“开启此虚拟机”下面的“编辑虚拟机”，在弹出的选项设置中开启共享文件夹，添加需要挂载的文件夹即可。</p>
 </blockquote>
-<h3 id="3-安装搜狗输入法"><a href="#3-安装搜狗输入法" class="headerlink" title="3. 安装搜狗输入法"></a>3. 安装搜狗输入法</h3><p>推荐搜狗 Linux 输入法下载安装，有两种安装方法：   </p>
+<h3 id="4-安装搜狗输入法"><a href="#4-安装搜狗输入法" class="headerlink" title="4. 安装搜狗输入法"></a>4. 安装搜狗输入法</h3><p>推荐搜狗 Linux 输入法下载安装，有两种安装方法：   </p>
 <ul>
 <li>命令行方式：<br><code>sudo apt-get update  
 sudo apt-get install sogoupinyin</code>  </li>
@@ -373,19 +374,19 @@ sudo apt-get install sogoupinyin</code>  </li>
 <p><img src="http://i.imgur.com/TillNf5.jpg" alt="">  </p>
 <p>安装成功后，进行输入法<strong>设置</strong>：  </p>
 <p><strong>系统设置&gt;语言支持&gt;键盘输入方式系统，    然后选择 fcitx 项</strong>，<br>然后重启系统即可使用。</p>
-<h3 id="4-点击图标最小化"><a href="#4-点击图标最小化" class="headerlink" title="4. 点击图标最小化"></a>4. 点击图标最小化</h3><p>Ubuntu 16.04 LTS 也支持了点击应用程序 Launcher 图标即可「最小化」的功能，不过还是需要用户进行手动启用。<br><img src="http://i.imgur.com/uw01kuK.gif" alt=""><br>方法有两种：  </p>
+<h3 id="5-点击图标最小化"><a href="#5-点击图标最小化" class="headerlink" title="5. 点击图标最小化"></a>5. 点击图标最小化</h3><p>Ubuntu 16.04 LTS 也支持了点击应用程序 Launcher 图标即可「最小化」的功能，不过还是需要用户进行手动启用。<br><img src="http://i.imgur.com/uw01kuK.gif" alt=""><br>方法有两种：  </p>
 <ul>
 <li>你可以安装 Unity Tweak Tool 图形界面工具之后在 「Unity」-「Launcher」-「Minimise」中进行配置。  </li>
 <li><p>直接在终端中使用如下命令启用。<br>gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true</p>
-<h3 id="5-安装系统清理工具"><a href="#5-安装系统清理工具" class="headerlink" title="5. 安装系统清理工具"></a>5. 安装系统清理工具</h3><p>操作系统使用久了，越来越多的缓存和垃圾文件都会不断拖慢系统，在此推荐大家安装开源、免费的 BleachBit 工具来进行 Ubuntu 系统清理。<br><img src="http://i.imgur.com/1hEgIPF.jpg" alt=""><br>  <code>sudo apt-get install bleachbit</code>  </p>
+<h3 id="6-安装系统清理工具"><a href="#6-安装系统清理工具" class="headerlink" title="6. 安装系统清理工具"></a>6. 安装系统清理工具</h3><p>操作系统使用久了，越来越多的缓存和垃圾文件都会不断拖慢系统，在此推荐大家安装开源、免费的 BleachBit 工具来进行 Ubuntu 系统清理。<br><img src="http://i.imgur.com/1hEgIPF.jpg" alt=""><br>  <code>sudo apt-get install bleachbit</code>  </p>
 <p>  bleachbit <strong><a href="http://www.bleachbit.org/download/linux" target="_blank" rel="external">下载地址</a></strong><br>根据自己的版本下载，deb包，然后直接双击即可。</p>
-<h3 id="6-安装vim"><a href="#6-安装vim" class="headerlink" title="6. 安装vim"></a>6. 安装vim</h3><p>vim申请系统中没有集成，只能我们自己安装。  </p>
+<h3 id="7-安装vim"><a href="#7-安装vim" class="headerlink" title="7. 安装vim"></a>7. 安装vim</h3><p>vim申请系统中没有集成，只能我们自己安装。  </p>
 <p>  sudo apt-get install vim </p>
-<h3 id="7-安装WPS-Office"><a href="#7-安装WPS-Office" class="headerlink" title="7. 安装WPS Office"></a>7. 安装WPS Office</h3><p>目前MS一直不出Linux版的Office，只能凑合着用WPS了</p>
+<h3 id="8-安装WPS-Office"><a href="#8-安装WPS-Office" class="headerlink" title="8. 安装WPS Office"></a>8. 安装WPS Office</h3><p>目前MS一直不出Linux版的Office，只能凑合着用WPS了</p>
 <p>  sudo apt-get install wps-office </p>
-<h3 id="8-删除libreoffice"><a href="#8-删除libreoffice" class="headerlink" title="8. 删除libreoffice"></a>8. 删除libreoffice</h3><p>libreoffice虽然是开源的，但是Java写出来的office执行效率实在不敢恭维，装完系统后果断删掉</p>
+<h3 id="9-删除libreoffice（根据自己实际情况）"><a href="#9-删除libreoffice（根据自己实际情况）" class="headerlink" title="9. 删除libreoffice（根据自己实际情况）"></a>9. 删除libreoffice（根据自己实际情况）</h3><p>libreoffice虽然是开源的，但是Java写出来的office执行效率实在不敢恭维，装完系统后果断删掉</p>
 <p>  sudo apt-get remove libreoffice-common</p>
-<h3 id="9-删掉基本不用的自带软件（用的时候再装也来得及）"><a href="#9-删掉基本不用的自带软件（用的时候再装也来得及）" class="headerlink" title="9.删掉基本不用的自带软件（用的时候再装也来得及）"></a>9.删掉基本不用的自带软件（用的时候再装也来得及）</h3><p>  sudo apt-get remove thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese transmission-common gnome-orca webbrowser-app gnome-sudoku  landscape-client-ui-install</p>
+<h3 id="10-删掉基本不用的自带软件（不要都删。。）"><a href="#10-删掉基本不用的自带软件（不要都删。。）" class="headerlink" title="10.删掉基本不用的自带软件（不要都删。。）"></a>10.删掉基本不用的自带软件（不要都删。。）</h3><p>  sudo apt-get remove thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese transmission-common gnome-orca webbrowser-app gnome-sudoku  landscape-client-ui-install</p>
 <p>  sudo apt-get remove onboard deja-dup </p>
 </li>
 </ul>
@@ -634,7 +635,7 @@ sudo apt-get install sogoupinyin</code>  </li>
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-更新软件源"><span class="nav-number">2.1.</span> <span class="nav-text">1. 更新软件源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-更换语言"><span class="nav-number">2.2.</span> <span class="nav-text">2. 更换语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装搜狗输入法"><span class="nav-number">2.3.</span> <span class="nav-text">3. 安装搜狗输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-点击图标最小化"><span class="nav-number">2.4.</span> <span class="nav-text">4. 点击图标最小化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-安装系统清理工具"><span class="nav-number">2.5.</span> <span class="nav-text">5. 安装系统清理工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-安装vim"><span class="nav-number">2.6.</span> <span class="nav-text">6. 安装vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-安装WPS-Office"><span class="nav-number">2.7.</span> <span class="nav-text">7. 安装WPS Office</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-删除libreoffice"><span class="nav-number">2.8.</span> <span class="nav-text">8. 删除libreoffice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-删掉基本不用的自带软件（用的时候再装也来得及）"><span class="nav-number">2.9.</span> <span class="nav-text">9.删掉基本不用的自带软件（用的时候再装也来得及）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录：Ubuntu最常用命令"><span class="nav-number">3.</span> <span class="nav-text">附录：Ubuntu最常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-更新软件源"><span class="nav-number">2.1.</span> <span class="nav-text">1. 更新软件源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-更换语言"><span class="nav-number">2.2.</span> <span class="nav-text">2. 更换语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-安装搜狗输入法"><span class="nav-number">2.3.</span> <span class="nav-text">4. 安装搜狗输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-点击图标最小化"><span class="nav-number">2.4.</span> <span class="nav-text">5. 点击图标最小化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-安装系统清理工具"><span class="nav-number">2.5.</span> <span class="nav-text">6. 安装系统清理工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-安装vim"><span class="nav-number">2.6.</span> <span class="nav-text">7. 安装vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-安装WPS-Office"><span class="nav-number">2.7.</span> <span class="nav-text">8. 安装WPS Office</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-删除libreoffice（根据自己实际情况）"><span class="nav-number">2.8.</span> <span class="nav-text">9. 删除libreoffice（根据自己实际情况）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-删掉基本不用的自带软件（不要都删。。）"><span class="nav-number">2.9.</span> <span class="nav-text">10.删掉基本不用的自带软件（不要都删。。）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录：Ubuntu最常用命令"><span class="nav-number">3.</span> <span class="nav-text">附录：Ubuntu最常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>
