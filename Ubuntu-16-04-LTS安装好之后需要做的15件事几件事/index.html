@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://i.imgur.com/TillNf5.jpg">
 <meta property="og:image" content="http://i.imgur.com/uw01kuK.gif">
 <meta property="og:image" content="http://i.imgur.com/1hEgIPF.jpg">
-<meta property="og:updated_time" content="2016-10-22T12:56:14.032Z">
+<meta property="og:updated_time" content="2016-10-22T15:26:34.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu 16.04 LTS安装好之后需要做的几件事">
 <meta name="twitter:description" content="前言Ubuntu16.04 系统安装成功后，还不适合我们工作和学习的需要，还需要进行一些必要的配置。">
@@ -360,7 +360,7 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Ubuntu16.04 系统安装成功后，还不适合我们工作和学习的需要，还需要进行一些必要的配置。<br><a id="more"></a></p>
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-更新软件源"><a href="#1-更新软件源" class="headerlink" title="1. 更新软件源"></a>1. 更新软件源</h3><p>在系统设置中，点击软件和更新，在里面的来源中选择其他站点中的  中国  ，现在比较好的下载源是 清华  ，如下图：<br><img src="http://i.imgur.com/MXl2gqQ.png" alt=""></p>
-<h3 id="2-更换语言"><a href="#2-更换语言" class="headerlink" title="2. 更换语言"></a>2. 更换语言</h3><p>有的时候，一些朋友对英文界面不太熟悉，因此设置为中文语言显得很有必要。<br><img src="http://i.imgur.com/er1lUlr.png" alt=""><br>具体步骤参见：</p>
+<h3 id="2-更换语言"><a href="#2-更换语言" class="headerlink" title="2. 更换语言"></a>2. 更换语言</h3><p>有的时候，一些朋友对英文界面不太熟悉，因此设置为中文语言显得很有必要。 (chinese(simplied)可能在列表下方，需要向下翻看)<br><img src="http://i.imgur.com/er1lUlr.png" alt=""><br>具体步骤参见：</p>
 <blockquote>
 <p><a href="http://jingyan.baidu.com/article/3c343ff7029de30d37796306.html" target="_blank" rel="external">http://jingyan.baidu.com/article/3c343ff7029de30d37796306.html</a></p>
 </blockquote>
@@ -368,7 +368,13 @@
 <ul>
 <li>命令行方式：<br><code>sudo apt-get update  
 sudo apt-get install sogoupinyin</code>  </li>
-<li>可以去搜狗输入法官网下载 DEB版本，可以dpkg 安装或直接双击安装，这里就不过多介绍了。<br><img src="http://i.imgur.com/TillNf5.jpg" alt=""><h3 id="4-点击图标最小化"><a href="#4-点击图标最小化" class="headerlink" title="4. 点击图标最小化"></a>4. 点击图标最小化</h3>Ubuntu 16.04 LTS 也支持了点击应用程序 Launcher 图标即可「最小化」的功能，不过还是需要用户进行手动启用。<br><img src="http://i.imgur.com/uw01kuK.gif" alt=""><br>方法有两种：  </li>
+<li>可以去搜狗输入法官网下载 DEB版本，可以dpkg 安装或<strong>直接双击安装deb安装包</strong>，这里就不过多介绍了。  （<a href="http://pinyin.sogou.com/linux/?r=pinyin" target="_blank" rel="external">下载地址</a>）</li>
+</ul>
+<p><img src="http://i.imgur.com/TillNf5.jpg" alt="">  </p>
+<p>安装成功后，进行输入法<strong>设置</strong>：  </p>
+<p><strong>系统设置&gt;语言支持&gt;键盘输入方式系统，    然后选择 fcitx 项</strong>，<br>然后重启系统即可使用。</p>
+<h3 id="4-点击图标最小化"><a href="#4-点击图标最小化" class="headerlink" title="4. 点击图标最小化"></a>4. 点击图标最小化</h3><p>Ubuntu 16.04 LTS 也支持了点击应用程序 Launcher 图标即可「最小化」的功能，不过还是需要用户进行手动启用。<br><img src="http://i.imgur.com/uw01kuK.gif" alt=""><br>方法有两种：  </p>
+<ul>
 <li>你可以安装 Unity Tweak Tool 图形界面工具之后在 「Unity」-「Launcher」-「Minimise」中进行配置。  </li>
 <li><p>直接在终端中使用如下命令启用。<br>gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ launcher-minimize-window true</p>
 <h3 id="5-安装系统清理工具"><a href="#5-安装系统清理工具" class="headerlink" title="5. 安装系统清理工具"></a>5. 安装系统清理工具</h3><p>操作系统使用久了，越来越多的缓存和垃圾文件都会不断拖慢系统，在此推荐大家安装开源、免费的 BleachBit 工具来进行 Ubuntu 系统清理。<br><img src="http://i.imgur.com/1hEgIPF.jpg" alt=""><br>  sudo apt-get install bleachbit</p>
