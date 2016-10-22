@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/ubuntu下spark集群环境搭建/index.html">
 <meta property="og:site_name" content="Arrnos">
 <meta property="og:description" content="前言本教程旨在学习spark集群环境的搭建，主要分为以下几部分：安装和配置 JDK、scala和spark。下面一一详细讲述。">
-<meta property="og:updated_time" content="2016-10-20T02:17:28.009Z">
+<meta property="og:updated_time" content="2016-10-22T15:50:16.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu下spark集群环境搭建">
 <meta name="twitter:description" content="前言本教程旨在学习spark集群环境的搭建，主要分为以下几部分：安装和配置 JDK、scala和spark。下面一一详细讲述。">
@@ -354,7 +354,9 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本教程旨在学习spark集群环境的搭建，主要分为以下几部分：<br>安装和配置 JDK、scala和spark。下面一一详细讲述。<br><a id="more"></a></p>
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="一-安装JDK"><a href="#一-安装JDK" class="headerlink" title="一. 安装JDK"></a>一. 安装JDK</h3><h4 id="1-下载-jdk"><a href="#1-下载-jdk" class="headerlink" title="1.    下载 jdk"></a>1.    下载 jdk</h4><p>下载网址：<a href="http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html</a><br>(以jdk-8u101-linux-x64.tar.gz为例)</p>
-<h4 id="2-解压下载的jdk包-到-opt文件夹下-或直接提取"><a href="#2-解压下载的jdk包-到-opt文件夹下-或直接提取" class="headerlink" title="2.    解压下载的jdk包 到/opt文件夹下(或直接提取)"></a>2.    解压下载的jdk包 到/opt文件夹下(或直接提取)</h4><p>sudo tar -xzvf jdk-8u101-linux-x64.tar.gz -C /opt</p>
+<h4 id="2-解压下载的jdk包-到-opt文件夹下-或直接提取"><a href="#2-解压下载的jdk包-到-opt文件夹下-或直接提取" class="headerlink" title="2.    解压下载的jdk包 到/opt文件夹下(或直接提取)"></a>2.    解压下载的jdk包 到/opt文件夹下(或直接提取)</h4><pre><code> *如果不让解压到/opt文件夹，则需要添加权限。
+sudo chmod a+w /opt 
+</code></pre><p>sudo tar -xzvf jdk-8u101-linux-x64.tar.gz -C /opt</p>
 <h4 id="3-添加环境变量"><a href="#3-添加环境变量" class="headerlink" title="3.    添加环境变量"></a>3.    添加环境变量</h4><pre><code>sudo gedit /etc/profile 
 在profile文件最后，添加如下配置：
 
