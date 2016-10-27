@@ -90,10 +90,15 @@
 <meta property="og:url" content="http://yoursite.com/ubuntu下spark集群环境搭建/index.html">
 <meta property="og:site_name" content="Arrnos">
 <meta property="og:description" content="前言本教程旨在学习spark集群环境的搭建，主要分为以下几部分：安装和配置 JDK、scala和spark。下面一一详细讲述。">
-<meta property="og:updated_time" content="2016-10-22T15:50:16.688Z">
+<meta property="og:image" content="http://i.imgur.com/mk5Wru1.png">
+<meta property="og:image" content="http://i.imgur.com/qgcAoJy.png">
+<meta property="og:image" content="http://i.imgur.com/gguiPGx.png">
+<meta property="og:image" content="http://i.imgur.com/lo7VLjB.png">
+<meta property="og:updated_time" content="2016-10-27T04:57:02.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu下spark集群环境搭建">
 <meta name="twitter:description" content="前言本教程旨在学习spark集群环境的搭建，主要分为以下几部分：安装和配置 JDK、scala和spark。下面一一详细讲述。">
+<meta name="twitter:image" content="http://i.imgur.com/mk5Wru1.png">
 
 
 
@@ -408,14 +413,20 @@ vim ./conf/spark-env.sh
 # 添加下面一行
 export  SCALA_HOME=/opt/scala-2.11.8
 export  JAVA_HOME=/opt/jdk1.8.0_101
-export   SPARK_MASTER_IP=192.168.111.130
+export   SPARK_MASTER_IP=172.31.14.154
 export   SPARK_WORKER_MEMORY=512m
-export    master=spark://192.168.111.130:7070
+export    master=spark://172.31.14.154:7070
 </code></pre><p>注解： IP 是虚拟机的IP 地址，可以打开终端，输入命令ifconfig<br>来查看本机的IP地址。<br>更详细的配置说明，请参考官方文档：<br><a href="http://spark.apache.org/docs/latest/spark-standalone.html#cluster-launch-scripts" target="_blank" rel="external">http://spark.apache.org/docs/latest/spark-standalone.html#cluster-launch-scripts</a>  </p>
 <h3 id="四-启动并简单测试spark"><a href="#四-启动并简单测试spark" class="headerlink" title="四.启动并简单测试spark"></a>四.启动并简单测试spark</h3><h4 id="1-启动Spark"><a href="#1-启动Spark" class="headerlink" title="1. 启动Spark"></a>1. 启动Spark</h4><pre><code>/opt/spark/sbin/start-all.sh
-</code></pre><h4 id="2-简单示例"><a href="#2-简单示例" class="headerlink" title="2. 简单示例"></a>2. 简单示例</h4><pre><code>/opt/spark/bin/run-example SparkPi 
-grep &quot;Pi is roughly&quot;
-</code></pre><h4 id="3-spark-shell"><a href="#3-spark-shell" class="headerlink" title="3.spark-shell"></a>3.spark-shell</h4><p>Spark为我们提供了spark-shell这个交互式脚本，它是我们学习spark的一个简单有效的途径。需要注意的是，在启动spark-shell时，若你没有指定参数–master, spark-shell是运行在本地单机模式的。<br>(1)    Spark-shell单机模式:<br>通过webUI的方式查看系统信息：<a href="http://master:4040" target="_blank" rel="external">http://master:4040</a><br>(2)    Spark-shell集群模式：<br>通过webUI的方式查看系统信息：<a href="http://master:4040" target="_blank" rel="external">http://master:4040</a>  </p>
+
+在web页面查看  浏览器中输入localhost：8080  
+</code></pre><p><img src="http://i.imgur.com/mk5Wru1.png" alt=""><br>    （如果页面找不到的话，请查看环境变量./spark-hadoop/conf/spark-env.sh中 master的IP是否配置错误，IP一定要替换为自己的IP，可在终端用ifconfig命令查看 ）</p>
+<pre><code>输入jps命令查看进程
+</code></pre><p><img src="http://i.imgur.com/qgcAoJy.png" alt=""></p>
+<h4 id="2-简单示例"><a href="#2-简单示例" class="headerlink" title="2. 简单示例"></a>2. 简单示例</h4><pre><code>/opt/spark-hadoop/bin/run-example SparkPi|grep &quot;Pi is roughly&quot;
+</code></pre><p><img src="http://i.imgur.com/gguiPGx.png" alt=""></p>
+<h4 id="3-spark-shell"><a href="#3-spark-shell" class="headerlink" title="3.spark-shell"></a>3.spark-shell</h4><p>Spark为我们提供了spark-shell这个交互式脚本，它是我们学习spark的一个简单有效的途径。需要注意的是，在启动spark-shell时，若你没有指定参数–master, spark-shell是运行在本地单机模式的。<br><img src="http://i.imgur.com/lo7VLjB.png" alt=""></p>
+<p>(1)    Spark-shell单机模式:<br>通过webUI的方式查看系统信息：<a href="http://master:4040" target="_blank" rel="external">http://master:4040</a><br>(2)    Spark-shell集群模式：<br>通过webUI的方式查看系统信息：<a href="http://master:4040" target="_blank" rel="external">http://master:4040</a>  </p>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="1-配置信息汇总"><a href="#1-配置信息汇总" class="headerlink" title="1.配置信息汇总"></a>1.配置信息汇总</h3><pre><code>（1）
 sudo gedit /etc/profile 
 在profile文件最后，添加如下配置：
@@ -428,7 +439,7 @@ export PATH=${JAVA_HOME}/bin:${JRE_HOME}/bin:$PATH
 
 #Seeting Scala Scala环境变量
 
-export SCALA_HOME=/opt/scala-2.11.8
+export SCALA_HOME=/opt/scala-2.10.6
 export PATH=${SCALA_HOME}/bin:$PATH
 
 #setting Spark Spark环境变量
@@ -440,19 +451,13 @@ export PYTHONPATH=/opt/spark-hadoop/python
 （2）
 vim /opt/spark/conf/spark-env.sh
 添加下面一行
-export  SCALA_HOME=/opt/scala-2.11.8
+export  SCALA_HOME=/opt/scala-2.10.6
 export  JAVA_HOME=/opt/jdk1.8.0_101
-export   SPARK_MASTER_IP=192.168.111.130
-export   SPARK_WORKER_MEMORY=512m
-exportmaster=spark://192.168.111.130:7070
-</code></pre><h3 id="2-常见错误与解决方法"><a href="#2-常见错误与解决方法" class="headerlink" title="2.常见错误与解决方法"></a>2.常见错误与解决方法</h3><ol>
-<li>错误：安装 ubuntu时出现错误:This kernel requires an X86-64 CPU, but only detected ani686 CPU错误。解决方法：安装64位的系统需要64位的cpu且cpu要允许硬件虚拟化。首先查看cpu是否是64 位，是的话去bios里, 在cpu configuration中找到Virtualization，将其状态改为enabled.  </li>
-<li>错误：E212:can’topen file for writing。解决方法：权限不够，切换到ROOT.  </li>
-<li>错误：sudo时报错: unable to change to root gid: Operation not permitted解决方法：这是因为我们使用guest角色登录系统了，切换用户，使用普通用户登录系统后即可使用sudo命令。  </li>
-<li>错误：执行下面命令是报错：<br> root@worker1:~#scp id_rsa.pub root@master:/root/.ssh/id_rsa.pub.slave1<br> root@worker1’s password: Permission denied, please try again.<br> root@worker1’s password: Permission denied, please try again.<br> root@worker1’s password: Permission denied(publickey,password).lost connection<br>解决方法：登录到scp的目标机，将/etc/ssh/sshd_config 中注释掉 #PermitRootLogin without-password，添加PermitRootLogin yes,重启 ssh服务即可。（sudo service ssh restart.）  </li>
-<li>错误:启动spark history server时报错：<br> Exception in thread “main”java.lang.reflect.InvocationTargetException<br> at sun.reflect.NativeConstructorAccessorImpl.newInstance0(NativeMethod)at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstruct<br> orAccessorImpl.java:62) at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingC<br> onstructorAccessorImpl.java:45)atjava.lang.reflect.Constructor.newInstance(Constructor.java:422)<br> atorg.apache.spark.deploy.history.HistoryServer$.main(HistoryServer.sca<br> la:235)at org.apache.spark.deploy.history.HistoryServer.main(HistoryServer.scal<br> a)Caused by: java.lang.IllegalArgumentException: Log directoryspecified does not exist: file:/tmp/spark-events. Did you configure the correctone through spark.history.fs.logDirectory?<br>解决方法:<br>在启动spark history server时需要在命令行动态指定目录,或提前配置好相关参数。以spark.history开头的需要配置在spark-env.sh中的SPARK_HISTORY_OPTS，以spark.eventLog开头的配置在spark-defaults.conf。<br>可以在spark-defaults.conf中添加如下配置：<br> spark.eventLog.enabled           true<br> spark.eventLog.dir              hdfs://spark/jobhistory<br> spark.history.fs.logDirectory   hdfs://spark/jobhistory</li>
-</ol>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>（1）<a href="http://mp.weixin.qq.com/s?__biz=MzI2MTIyNDkzNg==&amp;mid=2654108005&amp;idx=1&amp;sn=a8201df58af2fce3b0538e093bbde0a6&amp;mpshare=1&amp;scene=24&amp;srcid=1014uCbJuMpE1ZCVLGBktbkW#rd" target="_blank" rel="external">Spark集群搭建详细过程（含Hadoop配置）</a><br>（2）<a href="http://mp.weixin.qq.com/s?__biz=MjM5MTAxNTg2OQ==&amp;mid=400533756&amp;idx=3&amp;sn=d1a989af63353f4fcbb9d9d04e31f76b&amp;mpshare=1&amp;scene=24&amp;srcid=1014rGZmoJalRnR7WzZYj3Io#rd" target="_blank" rel="external">spark 集群搭建</a><br>（3）<a href="http://mp.weixin.qq.com/s?__biz=MzIxNzE1NzcwOQ==&amp;mid=403179383&amp;idx=1&amp;sn=ac7bf36c7ae05764ee9de3fe21d21913&amp;mpshare=1&amp;scene=24&amp;srcid=1014bc2W9SvBxabcbE2X4NVD#rd" target="_blank" rel="external">spark分布式集群搭建</a></p>
+export  SPARK_LOCAL_IP=127.0.0.1
+export   SPARK_MASTER_IP=172.31.10.14
+export   SPARK_WORKER_MEMORY=1g
+export    master=spark://172.31.10.14:7070
+</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>（1）<a href="http://mp.weixin.qq.com/s?__biz=MzI2MTIyNDkzNg==&amp;mid=2654108005&amp;idx=1&amp;sn=a8201df58af2fce3b0538e093bbde0a6&amp;mpshare=1&amp;scene=24&amp;srcid=1014uCbJuMpE1ZCVLGBktbkW#rd" target="_blank" rel="external">Spark集群搭建详细过程（含Hadoop配置）</a><br>（2）<a href="http://mp.weixin.qq.com/s?__biz=MjM5MTAxNTg2OQ==&amp;mid=400533756&amp;idx=3&amp;sn=d1a989af63353f4fcbb9d9d04e31f76b&amp;mpshare=1&amp;scene=24&amp;srcid=1014rGZmoJalRnR7WzZYj3Io#rd" target="_blank" rel="external">spark 集群搭建</a><br>（3）<a href="http://mp.weixin.qq.com/s?__biz=MzIxNzE1NzcwOQ==&amp;mid=403179383&amp;idx=1&amp;sn=ac7bf36c7ae05764ee9de3fe21d21913&amp;mpshare=1&amp;scene=24&amp;srcid=1014bc2W9SvBxabcbE2X4NVD#rd" target="_blank" rel="external">spark分布式集群搭建</a></p>
 
       
     </div>
@@ -482,13 +487,13 @@ exportmaster=spark://192.168.111.130:7070
           
             <a href="/tags/ubuntu/" rel="tag">#ubuntu</a>
           
+            <a href="/tags/scala/" rel="tag">#scala</a>
+          
             <a href="/tags/spark/" rel="tag">#spark</a>
           
             <a href="/tags/hadoop/" rel="tag">#hadoop</a>
           
             <a href="/tags/java/" rel="tag">#java</a>
-          
-            <a href="/tags/scala/" rel="tag">#scala</a>
           
             <a href="/tags/环境配置/" rel="tag">#环境配置</a>
           
@@ -619,7 +624,7 @@ exportmaster=spark://192.168.111.130:7070
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -636,7 +641,7 @@ exportmaster=spark://192.168.111.130:7070
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -694,7 +699,7 @@ exportmaster=spark://192.168.111.130:7070
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-安装JDK"><span class="nav-number">2.1.</span> <span class="nav-text">一. 安装JDK</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载-jdk"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.    下载 jdk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-解压下载的jdk包-到-opt文件夹下-或直接提取"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.    解压下载的jdk包 到/opt文件夹下(或直接提取)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-添加环境变量"><span class="nav-number">2.1.3.</span> <span class="nav-text">3.    添加环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-使配置生效"><span class="nav-number">2.1.4.</span> <span class="nav-text">4.    使配置生效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-测试"><span class="nav-number">2.1.5.</span> <span class="nav-text">5.    测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-安装scala"><span class="nav-number">2.2.</span> <span class="nav-text">二. 安装scala</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载scala-以scala-2-11-8-tgz为例"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.下载scala(以scala-2.11.8.tgz为例)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-解压scala包到-opt目录下（或直接提取）"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 解压scala包到 /opt目录下（或直接提取）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-添加环境变量-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">3.    添加环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-使配置生效-1"><span class="nav-number">2.2.4.</span> <span class="nav-text">4.使配置生效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-测试-1"><span class="nav-number">2.2.5.</span> <span class="nav-text">5.测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-安装spark"><span class="nav-number">2.3.</span> <span class="nav-text">三.安装spark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载spark"><span class="nav-number">2.3.1.</span> <span class="nav-text">1. 下载spark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-解压下载的spark文件"><span class="nav-number">2.3.2.</span> <span class="nav-text">2. 解压下载的spark文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-添加环境变量-2"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.    添加环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-拷贝spark的配置文件"><span class="nav-number">2.3.4.</span> <span class="nav-text">4.拷贝spark的配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-修改配置文件"><span class="nav-number">2.3.5.</span> <span class="nav-text">5.修改配置文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-启动并简单测试spark"><span class="nav-number">2.4.</span> <span class="nav-text">四.启动并简单测试spark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-启动Spark"><span class="nav-number">2.4.1.</span> <span class="nav-text">1. 启动Spark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-简单示例"><span class="nav-number">2.4.2.</span> <span class="nav-text">2. 简单示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-spark-shell"><span class="nav-number">2.4.3.</span> <span class="nav-text">3.spark-shell</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-配置信息汇总"><span class="nav-number">3.1.</span> <span class="nav-text">1.配置信息汇总</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常见错误与解决方法"><span class="nav-number">3.2.</span> <span class="nav-text">2.常见错误与解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-安装JDK"><span class="nav-number">2.1.</span> <span class="nav-text">一. 安装JDK</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载-jdk"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.    下载 jdk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-解压下载的jdk包-到-opt文件夹下-或直接提取"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.    解压下载的jdk包 到/opt文件夹下(或直接提取)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-添加环境变量"><span class="nav-number">2.1.3.</span> <span class="nav-text">3.    添加环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-使配置生效"><span class="nav-number">2.1.4.</span> <span class="nav-text">4.    使配置生效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-测试"><span class="nav-number">2.1.5.</span> <span class="nav-text">5.    测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-安装scala"><span class="nav-number">2.2.</span> <span class="nav-text">二. 安装scala</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载scala-以scala-2-11-8-tgz为例"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.下载scala(以scala-2.11.8.tgz为例)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-解压scala包到-opt目录下（或直接提取）"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 解压scala包到 /opt目录下（或直接提取）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-添加环境变量-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">3.    添加环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-使配置生效-1"><span class="nav-number">2.2.4.</span> <span class="nav-text">4.使配置生效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-测试-1"><span class="nav-number">2.2.5.</span> <span class="nav-text">5.测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-安装spark"><span class="nav-number">2.3.</span> <span class="nav-text">三.安装spark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载spark"><span class="nav-number">2.3.1.</span> <span class="nav-text">1. 下载spark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-解压下载的spark文件"><span class="nav-number">2.3.2.</span> <span class="nav-text">2. 解压下载的spark文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-添加环境变量-2"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.    添加环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-拷贝spark的配置文件"><span class="nav-number">2.3.4.</span> <span class="nav-text">4.拷贝spark的配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-修改配置文件"><span class="nav-number">2.3.5.</span> <span class="nav-text">5.修改配置文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-启动并简单测试spark"><span class="nav-number">2.4.</span> <span class="nav-text">四.启动并简单测试spark</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-启动Spark"><span class="nav-number">2.4.1.</span> <span class="nav-text">1. 启动Spark</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-简单示例"><span class="nav-number">2.4.2.</span> <span class="nav-text">2. 简单示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-spark-shell"><span class="nav-number">2.4.3.</span> <span class="nav-text">3.spark-shell</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录"><span class="nav-number">3.</span> <span class="nav-text">附录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-配置信息汇总"><span class="nav-number">3.1.</span> <span class="nav-text">1.配置信息汇总</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
           </div>
         </section>

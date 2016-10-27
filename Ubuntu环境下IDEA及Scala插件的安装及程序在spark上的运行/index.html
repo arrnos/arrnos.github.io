@@ -1,0 +1,892 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ubuntu,scala,idea,spark" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="前言在Ubuntu上将spark环境配置好之后，就需要进行程序的开发了。我们一般在IDEA上开发Scala或java程序，下面重点讲解Ubuntu环境下IDEA的安装、Scala插件的安装、Scala项目的建立以及如何在spark集群上运行程序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行">
+<meta property="og:url" content="http://yoursite.com/Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行/index.html">
+<meta property="og:site_name" content="Arrnos">
+<meta property="og:description" content="前言在Ubuntu上将spark环境配置好之后，就需要进行程序的开发了。我们一般在IDEA上开发Scala或java程序，下面重点讲解Ubuntu环境下IDEA的安装、Scala插件的安装、Scala项目的建立以及如何在spark集群上运行程序。">
+<meta property="og:image" content="http://i.imgur.com/IvJhP34.png">
+<meta property="og:image" content="http://i.imgur.com/A2JrtgB.png">
+<meta property="og:image" content="http://i.imgur.com/csvvBQ9.png">
+<meta property="og:image" content="http://i.imgur.com/CcqLsvB.png">
+<meta property="og:image" content="http://i.imgur.com/UGmmrON.png">
+<meta property="og:image" content="http://i.imgur.com/R52jkfH.png">
+<meta property="og:image" content="http://i.imgur.com/2Sx5wXu.png">
+<meta property="og:image" content="http://i.imgur.com/JVWnz06.png">
+<meta property="og:image" content="http://i.imgur.com/058sYbo.png">
+<meta property="og:image" content="http://i.imgur.com/Q7IgBd0.png">
+<meta property="og:image" content="http://i.imgur.com/cbQYmQA.png">
+<meta property="og:image" content="http://i.imgur.com/wH1N570.png">
+<meta property="og:image" content="http://i.imgur.com/KNelYdw.png">
+<meta property="og:image" content="http://i.imgur.com/IocqhU0.png">
+<meta property="og:image" content="http://i.imgur.com/19YXolQ.png">
+<meta property="og:image" content="http://i.imgur.com/vIvojYw.png">
+<meta property="og:image" content="http://i.imgur.com/T0jxTTF.png">
+<meta property="og:updated_time" content="2016-10-27T08:59:53.330Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行">
+<meta name="twitter:description" content="前言在Ubuntu上将spark环境配置好之后，就需要进行程序的开发了。我们一般在IDEA上开发Scala或java程序，下面重点讲解Ubuntu环境下IDEA的安装、Scala插件的安装、Scala项目的建立以及如何在spark集群上运行程序。">
+<meta name="twitter:image" content="http://i.imgur.com/IvJhP34.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6342338215311050000',
+      author: '主编大人'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行/"/>
+
+
+  <title> Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行 | Arrnos </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?828e8e326cf133b21b9eb5a41f61e60f";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Arrnos</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">余生多指教</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-board">
+          <a href="/board" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            留言板
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-27T13:00:59+08:00" content="2016-10-27">
+              2016-10-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行/" class="leancloud_visitors" data-flag-title="Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在Ubuntu上将spark环境配置好之后，就需要进行程序的开发了。<br>我们一般在IDEA上开发Scala或java程序，下面重点讲解Ubuntu环境下IDEA的安装、Scala插件的安装、Scala项目的建立以及如何在spark集群上运行程序。<br><a id="more"></a></p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="一-Ubuntu环境下IDEA的安装"><a href="#一-Ubuntu环境下IDEA的安装" class="headerlink" title="一. Ubuntu环境下IDEA的安装"></a>一. Ubuntu环境下IDEA的安装</h3><h4 id="1-下载idea"><a href="#1-下载idea" class="headerlink" title="1. 下载idea"></a>1. 下载idea</h4><p>去官网<a href="https://www.jetbrains.com/idea/download/" target="_blank" rel="external">https://www.jetbrains.com/idea/download/</a>  下载idea的Linux版本<br><img src="http://i.imgur.com/IvJhP34.png" alt="">    </p>
+<h4 id="2-将下载的tar-gz包解压提取到你本地的安装目录下，我的是-opt"><a href="#2-将下载的tar-gz包解压提取到你本地的安装目录下，我的是-opt" class="headerlink" title="2. 将下载的tar.gz包解压提取到你本地的安装目录下，我的是/opt/"></a>2. 将下载的tar.gz包解压提取到你本地的安装目录下，我的是/opt/</h4><p><img src="http://i.imgur.com/A2JrtgB.png" alt=""></p>
+<h4 id="3-找到idea安装目录下的-bin-idea-sh-在终端打开它，即可看到经典的idea启动界面"><a href="#3-找到idea安装目录下的-bin-idea-sh-在终端打开它，即可看到经典的idea启动界面" class="headerlink" title="3. 找到idea安装目录下的./bin/idea.sh ,在终端打开它，即可看到经典的idea启动界面"></a>3. 找到idea安装目录下的./bin/idea.sh ,在终端打开它，即可看到经典的idea启动界面</h4><p><img src="http://i.imgur.com/csvvBQ9.png" alt=""><br><img src="http://i.imgur.com/CcqLsvB.png" alt=""></p>
+<h4 id="4-启动idea之后，可以导入配置，或重新配置你的idea，然后新建项目或导入原来的项目"><a href="#4-启动idea之后，可以导入配置，或重新配置你的idea，然后新建项目或导入原来的项目" class="headerlink" title="4. 启动idea之后，可以导入配置，或重新配置你的idea，然后新建项目或导入原来的项目"></a>4. 启动idea之后，可以导入配置，或重新配置你的idea，然后新建项目或导入原来的项目</h4><p><img src="http://i.imgur.com/UGmmrON.png" alt=""></p>
+<h3 id="二-Scala插件的安装"><a href="#二-Scala插件的安装" class="headerlink" title="二. Scala插件的安装"></a>二. Scala插件的安装</h3><h4 id="1-启动IDEA，在初始界面上，点击Configure-gt-Plugins-然后在弹出的界面中，点击安装插件install-plugins。-在插件安装界面上方，输入Scala-回车，然后右面有显示Scala插件安装按钮，点击即可（我的已经安装所以没有安装提示了）"><a href="#1-启动IDEA，在初始界面上，点击Configure-gt-Plugins-然后在弹出的界面中，点击安装插件install-plugins。-在插件安装界面上方，输入Scala-回车，然后右面有显示Scala插件安装按钮，点击即可（我的已经安装所以没有安装提示了）" class="headerlink" title="1. 启动IDEA，在初始界面上，点击Configure&gt;Plugins,然后在弹出的界面中，点击安装插件install ..plugins。  在插件安装界面上方，输入Scala 回车，然后右面有显示Scala插件安装按钮，点击即可（我的已经安装所以没有安装提示了）"></a>1. 启动IDEA，在初始界面上，点击Configure&gt;Plugins,然后在弹出的界面中，点击安装插件install ..plugins。  在插件安装界面上方，输入Scala 回车，然后右面有显示Scala插件安装按钮，点击即可（我的已经安装所以没有安装提示了）</h4><p><img src="http://i.imgur.com/R52jkfH.png" alt=""><br><img src="http://i.imgur.com/2Sx5wXu.png" alt=""></p>
+<h4 id="2-一般情况下，由于软件包资源链接的原因，下载插件很慢，我们一般采取第二种方式，即在Plugins安装界面下方，点击最后一个：从磁盘安装插件。-然后浏览本地插件点击安装即可，非常迅速。-IDEA的Scala插件包可以在-网址-下载。或百度搜索输入-Scala-plugin-for-idea，注意下载时注意版本的匹配哈！（不懂的童鞋再留言）"><a href="#2-一般情况下，由于软件包资源链接的原因，下载插件很慢，我们一般采取第二种方式，即在Plugins安装界面下方，点击最后一个：从磁盘安装插件。-然后浏览本地插件点击安装即可，非常迅速。-IDEA的Scala插件包可以在-网址-下载。或百度搜索输入-Scala-plugin-for-idea，注意下载时注意版本的匹配哈！（不懂的童鞋再留言）" class="headerlink" title="2. 一般情况下，由于软件包资源链接的原因，下载插件很慢，我们一般采取第二种方式，即在Plugins安装界面下方，点击最后一个：从磁盘安装插件。  然后浏览本地插件点击安装即可，非常迅速。  IDEA的Scala插件包可以在   网址  下载。或百度搜索输入 Scala plugin for idea，注意下载时注意版本的匹配哈！（不懂的童鞋再留言）"></a>2. 一般情况下，由于软件包资源链接的原因，下载插件很慢，我们一般采取第二种方式，即在Plugins安装界面下方，点击最后一个：从磁盘安装插件。  然后浏览本地插件点击安装即可，非常迅速。  IDEA的Scala插件包可以在   <a href="http://plugins.jetbrains.com/plugin/?id=1347" target="_blank" rel="external">网址</a>  下载。或百度搜索输入 Scala plugin for idea，注意下载时注意版本的匹配哈！（不懂的童鞋再留言）</h4><p><img src="http://i.imgur.com/JVWnz06.png" alt=""></p>
+<p><img src="http://i.imgur.com/058sYbo.png" alt=""></p>
+<h3 id="三-Scala项目的建立"><a href="#三-Scala项目的建立" class="headerlink" title="三. Scala项目的建立"></a>三. Scala项目的建立</h3><p>安装好Scala 插件后，就可以建立Scala项目了，下面是其过程。</p>
+<h4 id="1-在IDEA初始界面，新建项目，选择Scala，简单的代码可以直接选择Scala建立"><a href="#1-在IDEA初始界面，新建项目，选择Scala，简单的代码可以直接选择Scala建立" class="headerlink" title="1. 在IDEA初始界面，新建项目，选择Scala，简单的代码可以直接选择Scala建立"></a>1. 在IDEA初始界面，新建项目，选择Scala，简单的代码可以直接选择Scala建立</h4><p><img src="http://i.imgur.com/Q7IgBd0.png" alt=""></p>
+<h4 id="2-在弹出来的界面中，填入项目名称、存放路径、JAVA-HOME路径、SCALA-HOME路径，点击finish"><a href="#2-在弹出来的界面中，填入项目名称、存放路径、JAVA-HOME路径、SCALA-HOME路径，点击finish" class="headerlink" title="2. 在弹出来的界面中，填入项目名称、存放路径、JAVA-HOME路径、SCALA-HOME路径，点击finish"></a>2. 在弹出来的界面中，填入项目名称、存放路径、JAVA-HOME路径、SCALA-HOME路径，点击finish</h4><p><img src="http://i.imgur.com/cbQYmQA.png" alt=""></p>
+<h4 id="3-在新建Scala项目，在src目录下，新建Scala类，选择object类型，编写helloworld测试。"><a href="#3-在新建Scala项目，在src目录下，新建Scala类，选择object类型，编写helloworld测试。" class="headerlink" title="3. 在新建Scala项目，在src目录下，新建Scala类，选择object类型，编写helloworld测试。"></a>3. 在新建Scala项目，在src目录下，新建Scala类，选择object类型，编写helloworld测试。</h4><p><img src="http://i.imgur.com/wH1N570.png" alt=""></p>
+<p><img src="http://i.imgur.com/KNelYdw.png" alt=""></p>
+<p><img src="http://i.imgur.com/IocqhU0.png" alt=""></p>
+<h3 id="四-在spark集群上运行程序"><a href="#四-在spark集群上运行程序" class="headerlink" title="四. 在spark集群上运行程序"></a>四. 在spark集群上运行程序</h3><p>Scala程序如果要在spark平台上运行，还需要在项目中导入spark包库。</p>
+<h4 id="1-在file-gt-project-structure-gt-libraries-中，点击-号，选择java，然后找到spark的安装目录，添加lib目录下的-spark-assembly-1-6-2-hadoop2-6-0库。添加完成后，回到项目文件目录可以看到，spark库已经被成功添加。"><a href="#1-在file-gt-project-structure-gt-libraries-中，点击-号，选择java，然后找到spark的安装目录，添加lib目录下的-spark-assembly-1-6-2-hadoop2-6-0库。添加完成后，回到项目文件目录可以看到，spark库已经被成功添加。" class="headerlink" title="1. 在file&gt; project structure &gt; libraries 中，点击+号，选择java，然后找到spark的安装目录，添加lib目录下的 spark-assembly-1.6.2-hadoop2.6.0库。添加完成后，回到项目文件目录可以看到，spark库已经被成功添加。"></a>1. 在file&gt; project structure &gt; libraries 中，点击+号，选择java，然后找到spark的安装目录，添加lib目录下的 spark-assembly-1.6.2-hadoop2.6.0库。添加完成后，回到项目文件目录可以看到，spark库已经被成功添加。</h4><p><img src="http://i.imgur.com/19YXolQ.png" alt=""><br><img src="http://i.imgur.com/vIvojYw.png" alt=""><br><img src="http://i.imgur.com/T0jxTTF.png" alt=""></p>
+<h4 id="2-然后在import-包库，创建spark环境和变量，编写程序即可"><a href="#2-然后在import-包库，创建spark环境和变量，编写程序即可" class="headerlink" title="2. 然后在import 包库，创建spark环境和变量，编写程序即可"></a>2. 然后在import 包库，创建spark环境和变量，编写程序即可</h4><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>（1）<a href=""></a><br>（2）<a href=""></a><br>（3）<a href=""></a><br>（4）<a href=""></a><br>（5）<a href=""></a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.png" alt="arrnos wechat" style="width: 200px; max-width: 100%;"/>
+    <div>坚持原创技术分享，谢谢您的鼓励！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ubuntu/" rel="tag">#ubuntu</a>
+          
+            <a href="/tags/scala/" rel="tag">#scala</a>
+          
+            <a href="/tags/idea/" rel="tag">#idea</a>
+          
+            <a href="/tags/spark/" rel="tag">#spark</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Ubuntu-16-04-LTS安装好之后需要做的15件事几件事/" rel="next" title="Ubuntu 16.04 LTS安装好之后需要做的几件事">
+                <i class="fa fa-chevron-left"></i> Ubuntu 16.04 LTS安装好之后需要做的几件事
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行/"
+           data-title="Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行" data-url="http://yoursite.com/Ubuntu环境下IDEA及Scala插件的安装及程序在spark上的运行/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="arrnos" />
+          <p class="site-author-name" itemprop="name">arrnos</p>
+          <p class="site-description motion-element" itemprop="description">智障青年</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/arrnos" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/3287922600/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/zhang-meng-69-97" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-Ubuntu环境下IDEA的安装"><span class="nav-number">2.1.</span> <span class="nav-text">一. Ubuntu环境下IDEA的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载idea"><span class="nav-number">2.1.1.</span> <span class="nav-text">1. 下载idea</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-将下载的tar-gz包解压提取到你本地的安装目录下，我的是-opt"><span class="nav-number">2.1.2.</span> <span class="nav-text">2. 将下载的tar.gz包解压提取到你本地的安装目录下，我的是/opt/</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-找到idea安装目录下的-bin-idea-sh-在终端打开它，即可看到经典的idea启动界面"><span class="nav-number">2.1.3.</span> <span class="nav-text">3. 找到idea安装目录下的./bin/idea.sh ,在终端打开它，即可看到经典的idea启动界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-启动idea之后，可以导入配置，或重新配置你的idea，然后新建项目或导入原来的项目"><span class="nav-number">2.1.4.</span> <span class="nav-text">4. 启动idea之后，可以导入配置，或重新配置你的idea，然后新建项目或导入原来的项目</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-Scala插件的安装"><span class="nav-number">2.2.</span> <span class="nav-text">二. Scala插件的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-启动IDEA，在初始界面上，点击Configure-gt-Plugins-然后在弹出的界面中，点击安装插件install-plugins。-在插件安装界面上方，输入Scala-回车，然后右面有显示Scala插件安装按钮，点击即可（我的已经安装所以没有安装提示了）"><span class="nav-number">2.2.1.</span> <span class="nav-text">1. 启动IDEA，在初始界面上，点击Configure>Plugins,然后在弹出的界面中，点击安装插件install ..plugins。  在插件安装界面上方，输入Scala 回车，然后右面有显示Scala插件安装按钮，点击即可（我的已经安装所以没有安装提示了）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-一般情况下，由于软件包资源链接的原因，下载插件很慢，我们一般采取第二种方式，即在Plugins安装界面下方，点击最后一个：从磁盘安装插件。-然后浏览本地插件点击安装即可，非常迅速。-IDEA的Scala插件包可以在-网址-下载。或百度搜索输入-Scala-plugin-for-idea，注意下载时注意版本的匹配哈！（不懂的童鞋再留言）"><span class="nav-number">2.2.2.</span> <span class="nav-text">2. 一般情况下，由于软件包资源链接的原因，下载插件很慢，我们一般采取第二种方式，即在Plugins安装界面下方，点击最后一个：从磁盘安装插件。  然后浏览本地插件点击安装即可，非常迅速。  IDEA的Scala插件包可以在   网址  下载。或百度搜索输入 Scala plugin for idea，注意下载时注意版本的匹配哈！（不懂的童鞋再留言）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-Scala项目的建立"><span class="nav-number">2.3.</span> <span class="nav-text">三. Scala项目的建立</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在IDEA初始界面，新建项目，选择Scala，简单的代码可以直接选择Scala建立"><span class="nav-number">2.3.1.</span> <span class="nav-text">1. 在IDEA初始界面，新建项目，选择Scala，简单的代码可以直接选择Scala建立</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在弹出来的界面中，填入项目名称、存放路径、JAVA-HOME路径、SCALA-HOME路径，点击finish"><span class="nav-number">2.3.2.</span> <span class="nav-text">2. 在弹出来的界面中，填入项目名称、存放路径、JAVA-HOME路径、SCALA-HOME路径，点击finish</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-在新建Scala项目，在src目录下，新建Scala类，选择object类型，编写helloworld测试。"><span class="nav-number">2.3.3.</span> <span class="nav-text">3. 在新建Scala项目，在src目录下，新建Scala类，选择object类型，编写helloworld测试。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-在spark集群上运行程序"><span class="nav-number">2.4.</span> <span class="nav-text">四. 在spark集群上运行程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-在file-gt-project-structure-gt-libraries-中，点击-号，选择java，然后找到spark的安装目录，添加lib目录下的-spark-assembly-1-6-2-hadoop2-6-0库。添加完成后，回到项目文件目录可以看到，spark库已经被成功添加。"><span class="nav-number">2.4.1.</span> <span class="nav-text">1. 在file> project structure > libraries 中，点击+号，选择java，然后找到spark的安装目录，添加lib目录下的 spark-assembly-1.6.2-hadoop2.6.0库。添加完成后，回到项目文件目录可以看到，spark库已经被成功添加。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-然后在import-包库，创建spark环境和变量，编写程序即可"><span class="nav-number">2.4.2.</span> <span class="nav-text">2. 然后在import 包库，创建spark环境和变量，编写程序即可</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">3.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">arrnos</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"2468732648"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("", "");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
